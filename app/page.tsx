@@ -46,6 +46,18 @@ export default function Home() {
     setCurrentView('execution');
   };
 
+  const formatDuration = (seconds: number): string => {
+    if (seconds < 60) {
+      return `${seconds}s`;
+    }
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    if (remainingSeconds === 0) {
+      return `${minutes} min`;
+    }
+    return `${minutes} min ${remainingSeconds}s`;
+  };
+
   return (
     <div className="font-sans text-slate-900 bg-slate-50 antialiased selection:bg-blue-100 h-screen w-full overflow-hidden">
       <Sidebar 
@@ -135,7 +147,7 @@ export default function Home() {
                         {step.description}
                       </span>
                       <span className="text-slate-400 text-xs font-mono bg-slate-100 px-1 rounded self-start ml-2 flex-shrink-0">
-                        {step.duration}s
+                        {formatDuration(step.duration)}
                       </span>
                     </li>
                   ))}
