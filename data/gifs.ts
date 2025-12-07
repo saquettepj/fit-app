@@ -13,3 +13,4 @@ export const GIFS = {
 export const EXERCISE_GIFS = gifsData.exercises;
 
 
+
