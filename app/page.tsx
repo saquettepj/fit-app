@@ -27,6 +27,7 @@ export default function Home() {
     setIsSidebarOpen,
     history,
     addToHistory,
+    removeFromHistory,
   } = useApp();
 
   const handleSelectLevel = (level: 'easy' | 'medium' | 'intense', exercises: Exercise[]) => {
@@ -51,6 +52,7 @@ export default function Home() {
         isOpen={isSidebarOpen} 
         onClose={() => setIsSidebarOpen(false)} 
         history={history}
+        onRemoveFromHistory={removeFromHistory}
       />
 
       <AnimatePresence mode="wait">
@@ -141,11 +143,7 @@ export default function Home() {
 
             <button 
               onClick={startExercise}
-              className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg mt-2 transition-transform active:scale-95 ${
-                selectedExercise.theme.buttonColor.includes('bg-white') 
-                  ? 'bg-white text-slate-900 hover:bg-slate-100' 
-                  : `text-white ${selectedExercise.theme.buttonColor}`
-              }`}
+              className="w-full py-4 rounded-xl font-bold text-lg shadow-lg mt-2 transition-transform active:scale-95 text-slate-800 bg-green-200 hover:bg-green-300"
             >
               Começar Treino
             </button>
