@@ -36,8 +36,8 @@ export const ListScreen: React.FC<ListScreenProps> = ({
         </h1>
       </header>
 
-      <main className="flex-1 overflow-y-auto p-4 max-w-md mx-auto w-full">
-        <div className="flex flex-col gap-4">
+      <main className="flex-1 overflow-y-auto w-full">
+        <div className="p-4 max-w-md mx-auto flex flex-col gap-4">
           {exercises.map((exercise) => (
             <Card 
               key={exercise.id} 
