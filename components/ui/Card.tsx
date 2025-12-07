@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Clock } from 'lucide-react';
 import { Exercise } from '@/data/exercises';
 import { getImagePath } from '@/utils/imagePath';
+import { ImageLoading } from './Loading';
 
 interface CardProps {
   exercise: Exercise;
@@ -10,6 +11,9 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ exercise, onClick }) => {
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
+
   const formatTotalTime = (ex: Exercise) => {
     const singleSeriesDuration = ex.steps.reduce((acc, step) => acc + step.duration, 0);
     const totalSeconds = singleSeriesDuration * ex.seriesCount;
@@ -30,7 +34,21 @@ export const Card: React.FC<CardProps> = ({ exercise, onClick }) => {
       className={`rounded-2xl overflow-hidden shadow-sm border ${exercise.theme.borderColor} ${exercise.theme.cardBg} cursor-pointer relative`}
     >
       <div className="h-32 w-full overflow-hidden relative">
-        <img src={getImagePath(exercise.coverImage)} alt={exercise.title} className="w-full h-full object-cover" />
+        {imageLoading && !imageError && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <ImageLoading className="w-full h-full rounded-none" />
+          </div>
+        )}
+        <img 
+          src={getImagePath(exercise.coverImage)} 
+          alt={exercise.title} 
+          className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
+          onLoad={() => setImageLoading(false)}
+          onError={() => {
+            setImageLoading(false);
+            setImageError(true);
+          }}
+        />
         <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-md">
           {exercise.seriesCount} {exercise.seriesCount === 1 ? 'Série' : 'Séries'}
         </div>

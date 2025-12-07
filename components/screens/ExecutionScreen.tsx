@@ -3,6 +3,7 @@ import { ChevronLeft, Play, Pause, Dumbbell, SkipForward } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CircularTimer } from '@/components/ui/CircularTimer';
 import { Button } from '@/components/ui/Button';
+import { ImageLoading } from '@/components/ui/Loading';
 import { Exercise } from '@/data/exercises';
 import { playBeep } from '@/utils/audio';
 
@@ -32,6 +33,8 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   const skipTimerRef = useRef<NodeJS.Timeout | null>(null);
   const skipIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [skipCount, setSkipCount] = useState(0); // Contador de skips do treino atual
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
   
   const currentStep = exercise.steps[currentStepIndex];
   const isResting = currentStep.type === 'rest';
@@ -79,10 +82,18 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
     setIsActive(true);
     hasCompletedRef.current = false;
     setSkipCount(0); // Limpa o contador de skips quando um novo treino começa
+    setImageLoading(true); // Reseta loading quando muda de exercício
+    setImageError(false);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, []);
+  }, [exercise.id]);
+
+  // Resetar loading quando mudar o step
+  useEffect(() => {
+    setImageLoading(true);
+    setImageError(false);
+  }, [currentStepIndex]);
 
   useEffect(() => {
     if (isActive && timeLeft > 0) {
@@ -212,11 +223,21 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               className="w-full rounded-2xl overflow-hidden shadow-xl mb-1 relative transition-all duration-500 flex items-center justify-center h-[140px]"
               style={{ backgroundColor: '#fcfcfc' }}
             >
+              {imageLoading && !imageError && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <ImageLoading className="w-full h-full rounded-2xl" />
+                </div>
+              )}
               <img 
                 src={gifToShow} 
                 alt="Exercise Step" 
-                className={`max-w-full max-h-full object-contain transition-all duration-300 ${isResting ? 'opacity-80' : ''}`}
+                className={`max-w-full max-h-full object-contain transition-all duration-300 ${isResting ? 'opacity-80' : ''} ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
                 style={isResting ? { filter: 'blur(1px)' } : {}}
+                onLoad={() => setImageLoading(false)}
+                onError={() => {
+                  setImageLoading(false);
+                  setImageError(true);
+                }}
               />
             </motion.div>
           </AnimatePresence>
@@ -229,7 +250,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
           </p>
         </div>
 
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 flex items-center justify-center my-auto">
           <CircularTimer 
             duration={currentStep.duration} 
             timeLeft={timeLeft} 
