@@ -1,0 +1,24 @@
+{
+  "generic": {
+    "stretch": "https://media.giphy.com/media/l41lMJVy7bB5z1pJu/giphy.gif",
+    "rest": "https://media.giphy.com/media/1xVbRXWj8k2OA/giphy.gif",
+    "yoga": "https://media.giphy.com/media/3o7TKKt3UqV2G0G0Wk/giphy.gif",
+    "cardio": "https://media.giphy.com/media/3o7qDQ42tqK6q2d2lq/giphy.gif",
+    "squat": "https://media.giphy.com/media/1iLzHqmJqbZTfwGc/giphy.gif",
+    "burpee": "https://media.giphy.com/media/l2Je0oOcT3cj0j5qM/giphy.gif",
+    "climber": "https://media.giphy.com/media/l0HlPtbGpcnqa0fja/giphy.gif"
+  },
+  "exercises": {
+    "polichinelos": "https://gifdotreino.com/Exercicios/Funcional%20e%20HIT/Polichinelos.gif",
+    "pularCorda": "https://gifdotreino.com/Exercicios/Crossfit/Pular%20Corda.gif",
+    "flexao": "https://gifdotreino.com/Exercicios/Calistenia/Flex%C3%A3o.gif",
+    "remadaCurvada": "https://gifdotreino.com/Exercicios/Costas/Remada%20Curvada%20com%20Barra.gif",
+    "tricepsBanco": "https://gifdotreino.com/Exercicios/Tr%C3%ADceps/Tr%C3%ADceps%20no%20Banco.gif",
+    "desenvolvimentoOmbros": "https://gifdotreino.com/Exercicios/Ombros/Desenvolvimento%20de%20ombros%20com%20halteres%20em%20p%C3%A9%20com%20pegada%20neutra.gif",
+    "roscaBiceps": "https://gifdotreino.com/Exercicios/B%C3%ADceps/Rosca%20b%C3%ADceps%20com%20halteres.gif",
+    "elevacaoLateral": "https://gifdotreino.com/Exercicios/Ombros/Eleva%C3%A7%C3%A3o%20lateral%20de%20bra%C3%A7os%20com%20halteres.gif",
+    "mobilidadeOmbros": "https://gifdotreino.com/Exercicios/Ombros/Desenvolvimento%20de%20Ombros%20com%20Rota%C3%A7%C3%A3o%20Alternada%20com%20Halteres.gif",
+    "pranchaToqueOmbro": "https://gifdotreino.com/Exercicios/Calistenia/Flex%C3%A3o%20com%20Toque%20no%20Peito.gif"
+  }
+}
+
