@@ -24,6 +24,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   const [timeLeft, setTimeLeft] = useState(exercise.steps[0].duration);
   const [isActive, setIsActive] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
+  const hasCompletedRef = useRef(false);
   
   const currentStep = exercise.steps[currentStepIndex];
   const isResting = currentStep.type === 'rest';
@@ -39,19 +40,24 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
         setCurrentStepIndex(0);
         setTimeLeft(exercise.steps[0].duration);
       } else {
-        setIsCompleted(true);
-        setIsActive(false);
-        onComplete(exercise, levelKey);
+        // Proteger contra múltiplas chamadas
+        if (!hasCompletedRef.current && !isCompleted) {
+          hasCompletedRef.current = true;
+          setIsCompleted(true);
+          setIsActive(false);
+          onComplete(exercise, levelKey);
+        }
       }
     } else {
       const nextIndex = currentStepIndex + 1;
       setCurrentStepIndex(nextIndex);
       setTimeLeft(exercise.steps[nextIndex].duration);
     }
-  }, [currentStepIndex, currentSeries, exercise, levelKey, onComplete]);
+  }, [currentStepIndex, currentSeries, exercise, levelKey, onComplete, isCompleted]);
 
   useEffect(() => {
     setIsActive(true);
+    hasCompletedRef.current = false;
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };

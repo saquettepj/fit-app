@@ -94,15 +94,31 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   const addToHistory = (exercise: Exercise, level: Level | string) => {
     setHistory(prev => {
-      // Criar novo item
+      // Criar novo item com timestamp único
+      const now = Date.now();
       const newItem: HistoryItem = {
-        id: Date.now(),
+        id: now,
         title: exercise.title,
         level: level as Level,
-        timestamp: new Date().toISOString()
+        timestamp: new Date(now).toISOString()
       };
       
-      // Remover duplicatas baseado no ID (caso existam)
+      // Verificar se já existe um item muito recente (últimos 2 segundos) com o mesmo título e nível
+      // Isso previne duplicatas acidentais de chamadas muito próximas
+      const twoSecondsAgo = now - 2000;
+      const hasRecentDuplicate = prev.some(item => 
+        item.title === newItem.title && 
+        item.level === newItem.level &&
+        typeof item.id === 'number' &&
+        item.id > twoSecondsAgo
+      );
+      
+      // Se já existe um item muito recente igual, não adiciona
+      if (hasRecentDuplicate) {
+        return prev;
+      }
+      
+      // Remover qualquer duplicata baseado no ID (caso existam)
       const uniqueHistory = prev.filter(item => item.id !== newItem.id);
       
       // Adicionar novo item no início e manter apenas os 5 mais recentes
