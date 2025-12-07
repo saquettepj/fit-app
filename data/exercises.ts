@@ -81,7 +81,7 @@ export const intenseExercises: Exercise[] = [
     id: 'i1',
     title: "Superior",
     description: "Treino completo para membros superiores com aquecimento e exercícios de força.",
-    coverImage: "/superior.png",
+    coverImage: "/Superior.png",
     seriesCount: 1,
     theme: {
       cardBg: "bg-red-50",
