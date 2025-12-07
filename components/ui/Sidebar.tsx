@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Clock, Calendar } from 'lucide-react';
+import { X, Clock, Calendar, SkipForward } from 'lucide-react';
 
 interface HistoryItem {
   id: number;
   title: string;
   level: 'easy' | 'medium' | 'intense';
   timestamp: Date | string;
+  skipCount?: number; // Número de vezes que o exercício foi skipado
 }
 
 interface SidebarProps {
@@ -112,6 +113,14 @@ const HistoryItemCard: React.FC<HistoryItemCardProps> = ({ item, onRemove }) => 
             {new Date(item.timestamp).toLocaleDateString('pt-BR')} • {new Date(item.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
+        {item.skipCount !== undefined && item.skipCount > 0 && (
+          <div className="flex items-center gap-1 text-xs text-amber-600 mt-1">
+            <SkipForward size={12} />
+            <span className="font-medium">
+              {item.skipCount} {item.skipCount === 1 ? 'pulado' : 'pulados'}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

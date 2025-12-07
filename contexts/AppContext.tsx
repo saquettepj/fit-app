@@ -11,6 +11,7 @@ interface HistoryItem {
   title: string;
   level: Level;
   timestamp: string; // Serializado como string para localStorage
+  skipCount?: number; // Número de vezes que o exercício foi skipado
 }
 
 interface AppContextType {
@@ -27,7 +28,7 @@ interface AppContextType {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (open: boolean) => void;
   history: HistoryItem[];
-  addToHistory: (exercise: Exercise, level: Level | string) => void;
+  addToHistory: (exercise: Exercise, level: Level | string, skipCount?: number) => void;
   removeFromHistory: (id: number) => void;
 }
 
@@ -92,7 +93,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     }
   }, [history, isInitialized]);
 
-  const addToHistory = (exercise: Exercise, level: Level | string) => {
+  const addToHistory = (exercise: Exercise, level: Level | string, skipCount: number = 0) => {
     setHistory(prev => {
       // Criar novo item com timestamp único
       const now = Date.now();
@@ -100,7 +101,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         id: now,
         title: exercise.title,
         level: level as Level,
-        timestamp: new Date(now).toISOString()
+        timestamp: new Date(now).toISOString(),
+        skipCount: skipCount
       };
       
       // Verificar se já existe um item muito recente (últimos 2 segundos) com o mesmo título e nível

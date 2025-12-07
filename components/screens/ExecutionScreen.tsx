@@ -9,7 +9,7 @@ import { playBeep } from '@/utils/audio';
 interface ExecutionScreenProps {
   exercise: Exercise;
   onBack: () => void;
-  onComplete: (exercise: Exercise, levelKey: string) => void;
+  onComplete: (exercise: Exercise, levelKey: string, skipCount?: number) => void;
   levelKey: string;
 }
 
@@ -31,6 +31,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   const [isSkipPressed, setIsSkipPressed] = useState(false);
   const skipTimerRef = useRef<NodeJS.Timeout | null>(null);
   const skipIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [skipCount, setSkipCount] = useState(0); // Contador de skips do treino atual
   
   const currentStep = exercise.steps[currentStepIndex];
   const isResting = currentStep.type === 'rest';
@@ -64,7 +65,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
           hasCompletedRef.current = true;
           setIsCompleted(true);
           setIsActive(false);
-          onComplete(exercise, levelKey);
+          onComplete(exercise, levelKey, skipCount);
         }
       }
     } else {
@@ -72,11 +73,12 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
       setCurrentStepIndex(nextIndex);
       setTimeLeft(exercise.steps[nextIndex].duration);
     }
-  }, [currentStepIndex, currentSeries, exercise, levelKey, onComplete, isCompleted]);
+  }, [currentStepIndex, currentSeries, exercise, levelKey, onComplete, isCompleted, skipCount]);
 
   useEffect(() => {
     setIsActive(true);
     hasCompletedRef.current = false;
+    setSkipCount(0); // Limpa o contador de skips quando um novo treino começa
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
@@ -127,6 +129,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
       if (skipIntervalRef.current) {
         clearInterval(skipIntervalRef.current);
       }
+      setSkipCount(prev => prev + 1); // Incrementa contador de skips
       handleStepComplete();
       setIsSkipPressed(false);
       setSkipProgress(0);
