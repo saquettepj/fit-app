@@ -81,7 +81,7 @@ export const intenseExercises: Exercise[] = [
     id: 'i1',
     title: "Superior",
     description: "Treino completo para membros superiores com aquecimento e exercícios de força.",
-    coverImage: "/Superior.png",
+    coverImage: "/superior.png",
     seriesCount: 1,
     theme: {
       cardBg: "bg-red-50",
@@ -95,45 +95,45 @@ export const intenseExercises: Exercise[] = [
     steps: [
       // Aquecimento
       { type: "action", duration: 120, description: "Polichinelos", gifUrl: EXERCISE_GIFS.polichinelos },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 180, description: "Mobilidade de ombros + braços", gifUrl: EXERCISE_GIFS.mobilidadeOmbros },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 180, description: "Corda leve", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Exercícios de força
       { type: "action", duration: 40, description: "Flexão (normal ou joelhos)", gifUrl: EXERCISE_GIFS.flexao },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 40, description: "Remada curvada com pesos", gifUrl: EXERCISE_GIFS.remadaCurvada },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 40, description: "Tríceps no banco ou chão", gifUrl: EXERCISE_GIFS.tricepsBanco },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 40, description: "Desenvolvimento de ombros", gifUrl: EXERCISE_GIFS.desenvolvimentoOmbros },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 35, description: "Rosca bíceps", gifUrl: EXERCISE_GIFS.roscaBiceps },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Elevação lateral", gifUrl: EXERCISE_GIFS.elevacaoLateral },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 35, description: "Flexão com toque no peito", gifUrl: EXERCISE_GIFS.pranchaToqueOmbro },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Circuito de corda (9 ciclos de 30s ação + 30s descanso)
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda }
     ]
   },
@@ -154,24 +154,24 @@ export const intenseExercises: Exercise[] = [
     },
     steps: [
       // Aquecimento
-      { type: "action", duration: 300, description: "Corrida leve no lugar - 5 min", gifUrl: GIFS.cardio },
-      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
-      { type: "action", duration: 120, description: "Mobilidade de quadril e joelhos - 2 min", gifUrl: GIFS.stretch },
-      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 300, description: "Corrida leve no lugar", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 120, description: "Mobilidade de quadril e joelhos", gifUrl: GIFS.stretch },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Exercícios de força
       { type: "action", duration: 45, description: "Agachamento", gifUrl: EXERCISE_GIFS.agachamento },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 50, description: "Afundo alternado", gifUrl: EXERCISE_GIFS.afundo },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 45, description: "Agachamento sumô", gifUrl: EXERCISE_GIFS.agachamentoSumo },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 40, description: "Elevação lateral de perna - 15 cada", gifUrl: GIFS.stretch },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 45, description: "Donkey kicks - 15 cada", gifUrl: EXERCISE_GIFS.donkeyKicks },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 50, description: "Ponte de glúteo", gifUrl: EXERCISE_GIFS.ponteGluteo },
-      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Circuito 3x - 45s ON / 15s OFF
       // Ciclo 1
@@ -221,8 +221,8 @@ export const intenseExercises: Exercise[] = [
     },
     steps: [
       // Dança - 30 min
-      { type: "action", duration: 1800, description: "Dança - 30 min", gifUrl: GIFS.danca },
-      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 1800, description: "Dança", gifUrl: GIFS.danca },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Core - 3 séries
       // Série 1
@@ -268,9 +268,9 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Finalização
-      { type: "action", duration: 240, description: "4 min caminhada no lugar", gifUrl: GIFS.cardio },
+      { type: "action", duration: 240, description: "Caminhada no lugar", gifUrl: GIFS.cardio },
       { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
-      { type: "action", duration: 240, description: "4 min alongamento geral", gifUrl: GIFS.stretch }
+      { type: "action", duration: 240, description: "Alongamento geral", gifUrl: GIFS.stretch }
     ]
   },
   {
@@ -291,9 +291,9 @@ export const intenseExercises: Exercise[] = [
     steps: [
       // Aquecimento
       { type: "action", duration: 180, description: "3 min corda leve", gifUrl: EXERCISE_GIFS.pularCorda },
-      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 300, description: "5 min mobilidade e ativação", gifUrl: EXERCISE_GIFS.mobilidadeOmbros },
-      { type: "rest", duration: 10, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
       
       // 4 séries de exercícios de força
       // Série 1
@@ -382,10 +382,10 @@ export const intenseExercises: Exercise[] = [
     },
     steps: [
       // Aquecimento
-      { type: "action", duration: 120, description: "2 min movimentos de quadril", gifUrl: GIFS.stretch },
-      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
-      { type: "action", duration: 300, description: "5 min corrida leve no lugar", gifUrl: GIFS.cardio },
-      { type: "rest", duration: 10, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 120, description: "Movimentos de quadril", gifUrl: GIFS.stretch },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 300, description: "Corrida leve no lugar", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
       
       // 4 séries de exercícios de força
       // Série 1
@@ -437,7 +437,7 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Finalização
-      { type: "action", duration: 900, description: "15 min dança moderada", gifUrl: GIFS.danca }
+      { type: "action", duration: 900, description: "Dança moderada", gifUrl: GIFS.danca }
     ]
   }
 ];
