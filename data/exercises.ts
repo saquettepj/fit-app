@@ -370,7 +370,7 @@ export const intenseExercises: Exercise[] = [
     title: "Pernas e Cardio (Versão 2)",
     description: "Treino completo para membros inferiores com aquecimento, exercícios de força e dança moderada.",
     coverImage: "/pernas-e-cardio-2.png",
-    seriesCount: 4,
+    seriesCount: 1,
     theme: {
       cardBg: "bg-red-50",
       textColor: "text-red-900",
