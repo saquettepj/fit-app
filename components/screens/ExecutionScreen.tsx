@@ -186,10 +186,13 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
         <Button 
           variant="outline"
           onClick={onBack} 
-          className="w-full"
+          className="w-full mb-6"
         >
           Voltar para Lista
         </Button>
+        <p className="text-amber-400 text-base font-medium px-4">
+          Alongue para aliviar dores pós exercício
+        </p>
       </div>
     );
   }

@@ -267,7 +267,7 @@ export const intenseExercises: Exercise[] = [
       
       // Circuito 3x - 45s ON / 15s OFF
       // Ciclo 1
-      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: GIFS.burpee },
+      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: EXERCISE_GIFS.saltoLateral },
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 45, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
@@ -277,7 +277,7 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       
       // Ciclo 2
-      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: GIFS.burpee },
+      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: EXERCISE_GIFS.saltoLateral },
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 45, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
@@ -287,7 +287,7 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       
       // Ciclo 3
-      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: GIFS.burpee },
+      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: EXERCISE_GIFS.saltoLateral },
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 45, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
       { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
@@ -313,7 +313,7 @@ export const intenseExercises: Exercise[] = [
     },
     steps: [
       // Dança - 30 min
-      { type: "action", duration: 1800, description: "Dança", gifUrl: GIFS.danca },
+      { type: "action", duration: 1800, description: "Dança", gifUrl: EXERCISE_GIFS.dancaModerada },
       { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
       
       // Core - 3 séries
@@ -374,9 +374,9 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 60, description: "Descanso", gifUrl: GIFS.rest },
       
       // Finalização
-      { type: "action", duration: 240, description: "Caminhada no lugar", gifUrl: GIFS.cardio },
+      { type: "action", duration: 240, description: "Caminhada no lugar", gifUrl: EXERCISE_GIFS.corridaEstacionaria },
       { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
-      { type: "action", duration: 240, description: "Alongamento geral", gifUrl: GIFS.stretch }
+      { type: "action", duration: 240, description: "Alongamento geral", gifUrl: EXERCISE_GIFS.alongamentoGeral }
     ]
   },
   {
@@ -456,7 +456,7 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 20, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
       { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
-      { type: "action", duration: 20, description: "Mountain climber", gifUrl: GIFS.climber },
+      { type: "action", duration: 20, description: "Mountain climber", gifUrl: EXERCISE_GIFS.mountainClimber },
       { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 20, description: "Jumping jacks", gifUrl: EXERCISE_GIFS.polichinelos },
       { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
@@ -466,7 +466,7 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 20, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
       { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
-      { type: "action", duration: 20, description: "Mountain climber", gifUrl: GIFS.climber },
+      { type: "action", duration: 20, description: "Mountain climber", gifUrl: EXERCISE_GIFS.mountainClimber },
       { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 20, description: "Jumping jacks", gifUrl: EXERCISE_GIFS.polichinelos }
     ]
@@ -543,7 +543,7 @@ export const intenseExercises: Exercise[] = [
       { type: "rest", duration: 60, description: "Descanso", gifUrl: GIFS.rest },
       
       // Finalização
-      { type: "action", duration: 900, description: "Dança moderada", gifUrl: GIFS.danca }
+      { type: "action", duration: 900, description: "Dança moderada", gifUrl: EXERCISE_GIFS.dancaModerada }
     ]
   }
 ];
