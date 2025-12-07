@@ -23,8 +23,8 @@ export const ListScreen: React.FC<ListScreenProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <header className="p-4 flex items-center bg-white shadow-sm sticky top-0 z-10">
+    <div className="h-screen bg-slate-50 flex flex-col overflow-hidden">
+      <header className="p-4 flex items-center bg-white shadow-sm sticky top-0 z-10 flex-shrink-0">
         <button 
           onClick={onBack} 
           className="p-2 hover:bg-slate-100 rounded-full text-slate-600 mr-2"
@@ -36,14 +36,16 @@ export const ListScreen: React.FC<ListScreenProps> = ({
         </h1>
       </header>
 
-      <main className="flex-1 p-4 flex flex-col gap-4 max-w-md mx-auto w-full">
-        {exercises.map((exercise) => (
-          <Card 
-            key={exercise.id} 
-            exercise={exercise} 
-            onClick={() => onSelectExercise(exercise)} 
-          />
-        ))}
+      <main className="flex-1 overflow-y-auto p-4 max-w-md mx-auto w-full">
+        <div className="flex flex-col gap-4">
+          {exercises.map((exercise) => (
+            <Card 
+              key={exercise.id} 
+              exercise={exercise} 
+              onClick={() => onSelectExercise(exercise)} 
+            />
+          ))}
+        </div>
       </main>
     </div>
   );
