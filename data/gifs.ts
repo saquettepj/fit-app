@@ -12,3 +12,4 @@ export const GIFS = {
 // Exporta também de forma direta para facilitar o acesso
 export const EXERCISE_GIFS = gifsData.exercises;
 
+
