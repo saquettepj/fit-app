@@ -12,8 +12,31 @@ import { useApp } from '@/contexts/AppContext';
 import { Exercise } from '@/data/exercises';
 
 export default function Home() {
-  // Prevenir pull-to-refresh no mobile
+  const {
+    currentView,
+    setCurrentView,
+    selectedLevel,
+    setSelectedLevel,
+    currentExerciseList,
+    setCurrentExerciseList,
+    selectedExercise,
+    setSelectedExercise,
+    isModalOpen,
+    setIsModalOpen,
+    isSidebarOpen,
+    setIsSidebarOpen,
+    history,
+    addToHistory,
+    removeFromHistory,
+  } = useApp();
+
+  // Prevenir pull-to-refresh apenas nas telas de home e execution
   useEffect(() => {
+    // Aplicar apenas nas telas que não devem rolar
+    if (currentView !== 'home' && currentView !== 'execution') {
+      return;
+    }
+
     let lastTouchY = 0;
     let touchStartY = 0;
 
@@ -65,24 +88,7 @@ export default function Home() {
       document.removeEventListener('touchmove', preventDefault);
       window.removeEventListener('wheel', preventScroll);
     };
-  }, []);
-  const {
-    currentView,
-    setCurrentView,
-    selectedLevel,
-    setSelectedLevel,
-    currentExerciseList,
-    setCurrentExerciseList,
-    selectedExercise,
-    setSelectedExercise,
-    isModalOpen,
-    setIsModalOpen,
-    isSidebarOpen,
-    setIsSidebarOpen,
-    history,
-    addToHistory,
-    removeFromHistory,
-  } = useApp();
+  }, [currentView]);
 
   const handleSelectLevel = (level: 'easy' | 'medium' | 'intense', exercises: Exercise[]) => {
     setSelectedLevel(level);
@@ -114,7 +120,7 @@ export default function Home() {
 
   return (
     <div 
-      className="font-sans text-slate-900 bg-slate-50 antialiased selection:bg-blue-100 w-full overflow-hidden"
+      className="font-sans text-slate-900 bg-slate-50 antialiased selection:bg-blue-100 w-full"
       style={{ height: '100dvh', maxHeight: '100dvh' }}
     >
       <Sidebar 

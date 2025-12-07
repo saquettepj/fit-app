@@ -23,7 +23,10 @@ export const ListScreen: React.FC<ListScreenProps> = ({
   };
 
   return (
-    <div className="h-screen bg-slate-50 flex flex-col overflow-hidden">
+    <div 
+      className="bg-slate-50 flex flex-col"
+      style={{ height: '100dvh', maxHeight: '100dvh' }}
+    >
       <header className="p-4 flex items-center bg-white shadow-sm sticky top-0 z-10 flex-shrink-0">
         <button 
           onClick={onBack} 
@@ -36,7 +39,7 @@ export const ListScreen: React.FC<ListScreenProps> = ({
         </h1>
       </header>
 
-      <main className="flex-1 overflow-y-auto w-full">
+      <main className="flex-1 overflow-y-auto w-full min-h-0">
         <div className="p-4 max-w-md mx-auto flex flex-col gap-4">
           {exercises.map((exercise) => (
             <Card 
