@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, Play, Pause, Dumbbell } from 'lucide-react';
+import { ChevronLeft, Play, Pause, Dumbbell, SkipForward } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CircularTimer } from '@/components/ui/CircularTimer';
 import { Button } from '@/components/ui/Button';
@@ -25,6 +25,12 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   const [isActive, setIsActive] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const hasCompletedRef = useRef(false);
+  
+  // Estados para o botão de skip
+  const [skipProgress, setSkipProgress] = useState(0);
+  const [isSkipPressed, setIsSkipPressed] = useState(false);
+  const skipTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const skipIntervalRef = useRef<NodeJS.Timeout | null>(null);
   
   const currentStep = exercise.steps[currentStepIndex];
   const isResting = currentStep.type === 'rest';
@@ -100,6 +106,54 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   }, [timeLeft, isResting, isActive]);
 
   const togglePause = () => setIsActive(!isActive);
+
+  const handleSkipStart = () => {
+    setIsSkipPressed(true);
+    setSkipProgress(0);
+    
+    // Atualizar progresso a cada 50ms para animação suave (5 segundos = 100 * 50ms)
+    skipIntervalRef.current = setInterval(() => {
+      setSkipProgress(prev => {
+        const newProgress = prev + (100 / 100); // 100% em 5 segundos = 100 * 50ms
+        if (newProgress >= 100) {
+          return 100;
+        }
+        return newProgress;
+      });
+    }, 50);
+
+    // Skip após 5 segundos
+    skipTimerRef.current = setTimeout(() => {
+      if (skipIntervalRef.current) {
+        clearInterval(skipIntervalRef.current);
+      }
+      handleStepComplete();
+      setIsSkipPressed(false);
+      setSkipProgress(0);
+    }, 5000);
+  };
+
+  const handleSkipEnd = () => {
+    setIsSkipPressed(false);
+    setSkipProgress(0);
+    if (skipTimerRef.current) {
+      clearTimeout(skipTimerRef.current);
+    }
+    if (skipIntervalRef.current) {
+      clearInterval(skipIntervalRef.current);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (skipTimerRef.current) {
+        clearTimeout(skipTimerRef.current);
+      }
+      if (skipIntervalRef.current) {
+        clearInterval(skipIntervalRef.current);
+      }
+    };
+  }, []);
 
   if (isCompleted) {
     return (
@@ -187,6 +241,40 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               ) : (
                 <Play size={32} fill="currentColor" className="ml-1"/>
               )}
+            </button>
+            
+            <button
+              onTouchStart={handleSkipStart}
+              onTouchEnd={handleSkipEnd}
+              onTouchCancel={handleSkipEnd}
+              onMouseDown={handleSkipStart}
+              onMouseUp={handleSkipEnd}
+              onMouseLeave={handleSkipEnd}
+              className="relative w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95 bg-white text-slate-700 overflow-hidden"
+            >
+              {/* Progressão circular amarela do centro para as bordas */}
+              {isSkipPressed && (
+                <motion.div
+                  className="absolute inset-0 rounded-full"
+                  initial={{ scale: 0 }}
+                  animate={{ 
+                    scale: skipProgress / 100,
+                  }}
+                  transition={{ duration: 0.05, ease: 'linear' }}
+                  style={{ 
+                    transformOrigin: 'center',
+                    backgroundColor: '#fef3c7', // amber-100 - mesma cor clara do fundo do botão de pause
+                    opacity: 1,
+                  }}
+                />
+              )}
+              
+              {/* Ícone */}
+              <SkipForward 
+                size={28} 
+                className="relative z-10" 
+                strokeWidth={2.5}
+              />
             </button>
           </div>
           <p className="text-center text-xs text-slate-400 font-medium">
