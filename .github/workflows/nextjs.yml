@@ -77,9 +77,9 @@ jobs:
         env:
           # Habilita export estático para GitHub Pages
           NEXT_PUBLIC_EXPORT: 'true'
-          # O basePath será configurado automaticamente pelo actions/configure-pages@v5
-          # Se precisar definir manualmente, descomente e ajuste a linha abaixo:
-          # NEXT_PUBLIC_BASE_PATH: '/nome-do-repositorio'
+          # Define o basePath explicitamente baseado no nome do repositório
+          # O repositório é "fit-app", então o basePath será "/fit-app"
+          NEXT_PUBLIC_BASE_PATH: '/fit-app'
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Verify output directory
         run: |
