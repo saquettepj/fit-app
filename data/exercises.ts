@@ -39,9 +39,9 @@ export interface Exercise {
 export const easyExercises: Exercise[] = [
   {
     id: 'e1',
-    title: "Alongamento Matinal",
-    description: "Prepare o corpo para o dia com movimentos suaves.",
-    coverImage: "https://images.unsplash.com/photo-1544367563-12123d8965cd?w=600&q=80",
+    title: "Treino Leve - Template",
+    description: "Template de exercício leve para teste do sistema.",
+    coverImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
     seriesCount: 2,
     theme: {
       cardBg: "bg-green-50",
@@ -53,30 +53,9 @@ export const easyExercises: Exercise[] = [
       levelLabel: "Leve"
     },
     steps: [
-      { type: "action", duration: 10, description: "Esticar braços acima", gifUrl: GIFS.stretch },
-      { type: "rest", duration: 5, description: "Relaxe os ombros", gifUrl: GIFS.rest },
-      { type: "action", duration: 10, description: "Tocar os pés", gifUrl: GIFS.stretch }
-    ]
-  },
-  {
-    id: 'e2',
-    title: "Yoga Básico",
-    description: "Posições fundamentais para equilíbrio.",
-    coverImage: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80",
-    seriesCount: 1,
-    theme: {
-      cardBg: "bg-teal-50",
-      textColor: "text-teal-900",
-      borderColor: "border-teal-200",
-      accentColor: "bg-teal-100",
-      timerColor: "#14b8a6",
-      buttonColor: "bg-teal-600 hover:bg-teal-700",
-      levelLabel: "Leve"
-    },
-    steps: [
-      { type: "action", duration: 15, description: "Posição da Criança", gifUrl: GIFS.yoga },
-      { type: "rest", duration: 5, description: "Respire", gifUrl: GIFS.rest },
-      { type: "action", duration: 15, description: "Cachorro olhando p/ baixo", gifUrl: GIFS.yoga }
+      { type: "action", duration: 10, description: "Exercício 1", gifUrl: GIFS.stretch },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 10, description: "Exercício 2", gifUrl: GIFS.yoga }
     ]
   }
 ];
@@ -84,8 +63,8 @@ export const easyExercises: Exercise[] = [
 export const mediumExercises: Exercise[] = [
   {
     id: 'm1',
-    title: "Cardio Queima",
-    description: "Aumente a frequência cardíaca rapidamente.",
+    title: "Treino Médio - Template",
+    description: "Template de exercício médio para teste do sistema.",
     coverImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80",
     seriesCount: 3,
     theme: {
@@ -98,9 +77,9 @@ export const mediumExercises: Exercise[] = [
       levelLabel: "Médio"
     },
     steps: [
-      { type: "action", duration: 20, description: "Polichinelos", gifUrl: GIFS.cardio },
-      { type: "rest", duration: 10, description: "Respire fundo", gifUrl: GIFS.rest },
-      { type: "action", duration: 20, description: "Agachamento", gifUrl: GIFS.squat }
+      { type: "action", duration: 20, description: "Exercício 1", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 20, description: "Exercício 2", gifUrl: GIFS.squat }
     ]
   }
 ];
@@ -108,8 +87,8 @@ export const mediumExercises: Exercise[] = [
 export const intenseExercises: Exercise[] = [
   {
     id: 'i1',
-    title: "HIIT Destruidor",
-    description: "Alta intensidade para queima total de gordura.",
+    title: "Treino Intenso - Template",
+    description: "Template de exercício intenso para teste do sistema.",
     coverImage: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=600&q=80",
     seriesCount: 4,
     theme: {
@@ -122,9 +101,9 @@ export const intenseExercises: Exercise[] = [
       levelLabel: "Intenso"
     },
     steps: [
-      { type: "action", duration: 15, description: "Burpees", gifUrl: GIFS.burpee },
-      { type: "rest", duration: 5, description: "Recuperação rápida", gifUrl: GIFS.rest },
-      { type: "action", duration: 15, description: "Mountain Climbers", gifUrl: GIFS.climber }
+      { type: "action", duration: 15, description: "Exercício 1", gifUrl: GIFS.burpee },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 15, description: "Exercício 2", gifUrl: GIFS.climber }
     ]
   }
 ];
