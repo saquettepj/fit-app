@@ -126,8 +126,9 @@ export const Navigator: React.FC = () => {
           onClose={() => setIsModalOpen(false)} 
           title={selectedExercise.title}
         >
-          <div className="flex flex-col gap-4">
-            <div className={`p-4 rounded-xl ${selectedExercise.theme.accentColor} border ${selectedExercise.theme.borderColor}`}>
+          <div className="flex flex-col" style={{ height: 'calc(99vh - 180px)' }}>
+            {/* FOCO - Fixo no topo */}
+            <div className={`p-4 rounded-xl ${selectedExercise.theme.accentColor} border ${selectedExercise.theme.borderColor} flex-shrink-0`}>
               <div className="flex justify-between items-center mb-2">
                 <span className={`text-xs font-bold uppercase tracking-wider ${selectedExercise.theme.textColor}`}>
                   Foco
@@ -139,10 +140,20 @@ export const Navigator: React.FC = () => {
               <p className="font-medium text-slate-700">{selectedExercise.description}</p>
             </div>
             
-            <div className="space-y-3">
-              <h4 className="text-sm font-bold text-slate-500 uppercase">Sequência</h4>
-              <div className="max-h-64 overflow-y-auto pr-2">
-                <ul className="space-y-2 relative border-l-2 border-slate-100 ml-2 pl-4">
+            {/* Botão Começar Treino - Logo abaixo do FOCO */}
+            <button 
+              onClick={startExercise}
+              className="w-full py-4 rounded-xl font-bold text-lg shadow-lg mt-4 mb-4 transition-transform active:scale-95 text-slate-800 bg-green-200 hover:bg-green-300 flex-shrink-0"
+            >
+              Começar Treino
+            </button>
+            
+            {/* Sequência - ÚNICA área rolável */}
+            <div className="flex flex-col flex-1 min-h-0">
+              <h4 className="text-sm font-bold text-slate-500 uppercase mb-3 flex-shrink-0">Sequência</h4>
+              {/* Div rolável contendo os passos e descansos - altura mínima para ver 4 itens */}
+              <div className="overflow-y-auto overflow-x-hidden pr-2" style={{ minHeight: '240px', maxHeight: '400px', paddingBottom: '2rem' }}>
+                <ul className="space-y-2 relative border-l-2 border-slate-100 ml-2 pl-4" style={{ paddingBottom: '3rem', marginBottom: '1rem' }}>
                   {selectedExercise.steps.map((step, idx) => (
                     <li key={idx} className="text-sm flex justify-between items-center">
                       <span className={step.type === 'rest' ? 'text-slate-400 italic' : 'text-slate-700 font-medium'}>
@@ -156,13 +167,6 @@ export const Navigator: React.FC = () => {
                 </ul>
               </div>
             </div>
-
-            <button 
-              onClick={startExercise}
-              className="w-full py-4 rounded-xl font-bold text-lg shadow-lg mt-2 transition-transform active:scale-95 text-slate-800 bg-green-200 hover:bg-green-300"
-            >
-              Começar Treino
-            </button>
           </div>
         </Modal>
       )}

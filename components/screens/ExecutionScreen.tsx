@@ -124,10 +124,10 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
     setIsSkipPressed(true);
     setSkipProgress(0);
     
-    // Atualizar progresso a cada 50ms para animação suave (5 segundos = 100 * 50ms)
+    // Atualizar progresso a cada 50ms para animação suave (2 segundos = 40 * 50ms)
     skipIntervalRef.current = setInterval(() => {
       setSkipProgress(prev => {
-        const newProgress = prev + (100 / 100); // 100% em 5 segundos = 100 * 50ms
+        const newProgress = prev + (100 / 40); // 100% em 2 segundos = 40 * 50ms
         if (newProgress >= 100) {
           return 100;
         }
@@ -135,7 +135,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
       });
     }, 50);
 
-    // Skip após 5 segundos
+    // Skip após 2 segundos
     skipTimerRef.current = setTimeout(() => {
       if (skipIntervalRef.current) {
         clearInterval(skipIntervalRef.current);
@@ -144,7 +144,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
       handleStepComplete();
       setIsSkipPressed(false);
       setSkipProgress(0);
-    }, 5000);
+    }, 2000);
   };
 
   const handleSkipEnd = () => {
