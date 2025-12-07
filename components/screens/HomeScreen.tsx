@@ -21,19 +21,19 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onSelectLevel, toggleSid
         <div className="w-8" /> 
       </header>
 
-      <main className="flex-1 p-6 flex flex-col gap-6 justify-center max-w-md mx-auto w-full">
-        <div className="text-center mb-4">
-          <h2 className="text-3xl font-black text-slate-800 mb-2">Vamos treinar?</h2>
-          <p className="text-slate-500">Selecione a intensidade ideal para o seu momento.</p>
+      <main className="flex-1 p-4 flex flex-col gap-4 justify-center max-w-md mx-auto w-full">
+        <div className="text-center mb-2">
+          <h2 className="text-2xl font-black text-slate-800 mb-1">Vamos treinar?</h2>
+          <p className="text-sm text-slate-500">Selecione a intensidade ideal para o seu momento.</p>
         </div>
 
         <Button 
           variant="levelEasy" 
           onClick={() => onSelectLevel('easy', easyExercises)} 
-          className="h-24 text-lg"
+          className="h-16 text-base"
         >
           <div className="flex flex-col items-center gap-1">
-            <Activity className="text-green-600" />
+            <Activity className="text-green-600" size={20} />
             <span>Leve</span>
           </div>
         </Button>
@@ -41,10 +41,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onSelectLevel, toggleSid
         <Button 
           variant="levelMedium" 
           onClick={() => onSelectLevel('medium', mediumExercises)} 
-          className="h-24 text-lg"
+          className="h-16 text-base"
         >
           <div className="flex flex-col items-center gap-1">
-            <Zap className="text-orange-500" />
+            <Zap className="text-orange-500" size={20} />
             <span>Mediano</span>
           </div>
         </Button>
@@ -52,10 +52,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onSelectLevel, toggleSid
         <Button 
           variant="levelHard" 
           onClick={() => onSelectLevel('intense', intenseExercises)} 
-          className="h-24 text-lg"
+          className="h-16 text-base"
         >
           <div className="flex flex-col items-center gap-1">
-            <Flame className="text-red-600" />
+            <Flame className="text-red-600" size={20} />
             <span>Intenso</span>
           </div>
         </Button>

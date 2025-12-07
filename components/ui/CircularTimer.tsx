@@ -14,7 +14,7 @@ export const CircularTimer: React.FC<CircularTimerProps> = ({
   color, 
   isResting 
 }) => {
-  const radius = 100;
+  const radius = 60;
   const circumference = 2 * Math.PI * radius;
   const progress = timeLeft / duration;
   const dashOffset = circumference * (1 - progress);
@@ -29,14 +29,14 @@ export const CircularTimer: React.FC<CircularTimerProps> = ({
   };
 
   return (
-    <div className="relative flex items-center justify-center w-64 h-64 mx-auto my-6">
+    <div className="relative flex items-center justify-center w-40 h-40 mx-auto my-3">
       <svg className="absolute w-full h-full transform -rotate-90">
         <circle
           cx="50%"
           cy="50%"
           r={radius}
           stroke="currentColor"
-          strokeWidth="12"
+          strokeWidth="10"
           fill="transparent"
           className="text-slate-100"
         />
@@ -45,7 +45,7 @@ export const CircularTimer: React.FC<CircularTimerProps> = ({
           cy="50%"
           r={radius}
           stroke={isResting ? "#f97316" : "#22c55e"} 
-          strokeWidth="12"
+          strokeWidth="10"
           fill="transparent"
           strokeDasharray={circumference}
           animate={{ strokeDashoffset: dashOffset }}
@@ -55,10 +55,10 @@ export const CircularTimer: React.FC<CircularTimerProps> = ({
       </svg>
       
       <div className="absolute flex flex-col items-center">
-        <span className={`text-6xl font-black tabular-nums tracking-tighter ${isResting ? 'text-orange-500' : 'text-slate-800'}`}>
+        <span className={`text-4xl font-black tabular-nums tracking-tighter ${isResting ? 'text-orange-500' : 'text-slate-800'}`}>
           {formatTime(timeLeft)}
         </span>
-        <span className={`text-sm font-semibold uppercase tracking-widest mt-1 ${isResting ? 'text-orange-400' : 'text-slate-400'}`}>
+        <span className={`text-xs font-semibold uppercase tracking-widest mt-0.5 ${isResting ? 'text-orange-400' : 'text-slate-400'}`}>
           {isResting ? 'Descanso' : 'Segundos'}
         </span>
       </div>

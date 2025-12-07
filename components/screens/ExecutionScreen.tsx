@@ -198,7 +198,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
       </div>
 
       <main className="flex-1 flex flex-col max-w-md mx-auto w-full relative">
-        <div className="px-6 flex flex-col items-center">
+        <div className="px-4 flex flex-col items-center">
           <AnimatePresence mode="wait">
             <motion.div 
               key={currentStepIndex}
@@ -206,7 +206,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 relative transition-all duration-500 flex items-center justify-center"
+              className="w-full aspect-video rounded-2xl overflow-hidden shadow-xl mb-2 relative transition-all duration-500 flex items-center justify-center max-h-[180px]"
               style={{ backgroundColor: '#fcfcfc' }}
             >
               <img 
@@ -218,10 +218,10 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
             </motion.div>
           </AnimatePresence>
           
-          <h2 className="text-2xl font-bold text-slate-800 text-center mb-1 transition-all">
+          <h2 className="text-xl font-bold text-slate-800 text-center mb-0.5 transition-all">
             {currentStep.description}
           </h2>
-          <p className={`text-sm font-medium uppercase tracking-wider mb-2 ${isResting ? 'text-orange-500' : 'text-slate-400'}`}>
+          <p className={`text-xs font-medium uppercase tracking-wider mb-1 ${isResting ? 'text-orange-500' : 'text-slate-400'}`}>
             {isResting ? 'Respire fundo' : 'Execute o movimento'}
           </p>
         </div>
@@ -233,16 +233,16 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
           isResting={isResting}
         />
 
-        <div className="mt-auto p-6 w-full flex flex-col gap-4 bg-slate-50 rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
-          <div className="flex justify-center items-center gap-6">
+        <div className="mt-auto p-4 w-full flex flex-col gap-3 bg-slate-50 rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
+          <div className="flex justify-center items-center gap-5">
             <button 
               onClick={togglePause}
-              className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95 ${isActive ? 'bg-amber-100 text-amber-600' : 'bg-slate-800 text-white'}`}
+              className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95 ${isActive ? 'bg-amber-100 text-amber-600' : 'bg-slate-800 text-white'}`}
             >
               {isActive ? (
-                <Pause size={32} fill="currentColor" />
+                <Pause size={24} fill="currentColor" />
               ) : (
-                <Play size={32} fill="currentColor" className="ml-1"/>
+                <Play size={24} fill="currentColor" className="ml-1"/>
               )}
             </button>
             
@@ -253,7 +253,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               onMouseDown={handleSkipStart}
               onMouseUp={handleSkipEnd}
               onMouseLeave={handleSkipEnd}
-              className="relative w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95 bg-white text-slate-700 overflow-hidden"
+              className="relative w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95 bg-white text-slate-700 overflow-hidden"
             >
               {/* Progressão circular amarela do centro para as bordas */}
               {isSkipPressed && (
@@ -274,15 +274,12 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               
               {/* Ícone */}
               <SkipForward 
-                size={28} 
+                size={22} 
                 className="relative z-10" 
                 strokeWidth={2.5}
               />
             </button>
           </div>
-          <p className="text-center text-xs text-slate-400 font-medium">
-            {isActive ? 'Toque para pausar' : 'Toque para continuar'}
-          </p>
         </div>
       </main>
     </div>
