@@ -74,7 +74,27 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        env:
+          # Habilita export estático para GitHub Pages
+          NEXT_PUBLIC_EXPORT: 'true'
+          # O basePath será configurado automaticamente pelo actions/configure-pages@v5
+          # Se precisar definir manualmente, descomente e ajuste a linha abaixo:
+          # NEXT_PUBLIC_BASE_PATH: '/nome-do-repositorio'
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Verify output directory
+        run: |
+          if [ ! -d "./out" ]; then
+            echo "❌ Erro: A pasta 'out' não foi criada!"
+            echo "Conteúdo do diretório atual:"
+            ls -la
+            echo "Conteúdo do diretório .next (se existir):"
+            ls -la .next/ 2>/dev/null || echo "Diretório .next não existe"
+            exit 1
+          else
+            echo "✅ Pasta 'out' criada com sucesso!"
+            echo "Conteúdo da pasta 'out':"
+            ls -la ./out
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
