@@ -79,30 +79,9 @@ export const mediumExercises: Exercise[] = [
 export const intenseExercises: Exercise[] = [
   {
     id: 'i1',
-    title: "Treino Intenso - Template",
-    description: "Template de exercício intenso para teste do sistema.",
-    coverImage: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=600&q=80",
-    seriesCount: 4,
-    theme: {
-      cardBg: "bg-red-50",
-      textColor: "text-red-900",
-      borderColor: "border-red-200",
-      accentColor: "bg-red-100",
-      timerColor: "#dc2626",
-      buttonColor: "bg-red-600 hover:bg-red-700",
-      levelLabel: "Intenso"
-    },
-    steps: [
-      { type: "action", duration: 15, description: "Exercício 1", gifUrl: GIFS.burpee },
-      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
-      { type: "action", duration: 15, description: "Exercício 2", gifUrl: GIFS.climber }
-    ]
-  },
-  {
-    id: 'i2',
     title: "Superior",
     description: "Treino completo para membros superiores com aquecimento e exercícios de força.",
-    coverImage: "/Superior.png",
+    coverImage: "/superior.png",
     seriesCount: 1,
     theme: {
       cardBg: "bg-red-50",
@@ -156,6 +135,74 @@ export const intenseExercises: Exercise[] = [
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
       { type: "rest", duration: 30, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 30, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
+      { type: "rest", duration: 60, description: "Pausa final", gifUrl: GIFS.rest }
+    ]
+  },
+  {
+    id: 'i2',
+    title: "Pernas e Cardio",
+    description: "Treino completo para membros inferiores com aquecimento, exercícios de força e circuito de cardio.",
+    coverImage: "/pernas-e-cardio.png",
+    seriesCount: 1,
+    theme: {
+      cardBg: "bg-red-50",
+      textColor: "text-red-900",
+      borderColor: "border-red-200",
+      accentColor: "bg-red-100",
+      timerColor: "#dc2626",
+      buttonColor: "bg-red-600 hover:bg-red-700",
+      levelLabel: "Intenso"
+    },
+    steps: [
+      // Aquecimento
+      { type: "action", duration: 300, description: "Corrida leve no lugar - 5 min", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 120, description: "Mobilidade de quadril e joelhos - 2 min", gifUrl: GIFS.stretch },
+      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
+      
+      // Exercícios de força
+      { type: "action", duration: 45, description: "Agachamento - 15 rep", gifUrl: EXERCISE_GIFS.agachamento },
+      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Afundo alternado - 12 rep cada", gifUrl: EXERCISE_GIFS.afundo },
+      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Agachamento sumô - 15 rep", gifUrl: EXERCISE_GIFS.agachamentoSumo },
+      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 40, description: "Elevação lateral de perna - 15 cada", gifUrl: GIFS.stretch },
+      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Donkey kicks - 15 cada", gifUrl: EXERCISE_GIFS.donkeyKicks },
+      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Ponte de glúteo - 20 rep", gifUrl: EXERCISE_GIFS.ponteGluteo },
+      { type: "rest", duration: 3, description: "Pausa", gifUrl: GIFS.rest },
+      
+      // Circuito 3x - 45s ON / 15s OFF
+      // Ciclo 1
+      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: GIFS.burpee },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Corrida estacionária", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Skaters", gifUrl: EXERCISE_GIFS.skaters },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      
+      // Ciclo 2
+      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: GIFS.burpee },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Corrida estacionária", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Skaters", gifUrl: EXERCISE_GIFS.skaters },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      
+      // Ciclo 3
+      { type: "action", duration: 45, description: "Saltos laterais", gifUrl: GIFS.burpee },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Pular corda", gifUrl: EXERCISE_GIFS.pularCorda },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Corrida estacionária", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 15, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Skaters", gifUrl: EXERCISE_GIFS.skaters },
       { type: "rest", duration: 60, description: "Pausa final", gifUrl: GIFS.rest }
     ]
   }

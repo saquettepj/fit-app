@@ -18,7 +18,13 @@
     "roscaBiceps": "https://gifdotreino.com/Exercicios/B%C3%ADceps/Rosca%20b%C3%ADceps%20com%20halteres.gif",
     "elevacaoLateral": "https://gifdotreino.com/Exercicios/Ombros/Eleva%C3%A7%C3%A3o%20lateral%20de%20bra%C3%A7os%20com%20halteres.gif",
     "mobilidadeOmbros": "https://gifdotreino.com/Exercicios/Ombros/Desenvolvimento%20de%20Ombros%20com%20Rota%C3%A7%C3%A3o%20Alternada%20com%20Halteres.gif",
-    "pranchaToqueOmbro": "https://gifdotreino.com/Exercicios/Calistenia/Flex%C3%A3o%20com%20Toque%20no%20Peito.gif"
+    "pranchaToqueOmbro": "https://gifdotreino.com/Exercicios/Calistenia/Flex%C3%A3o%20com%20Toque%20no%20Peito.gif",
+    "agachamento": "https://gifdotreino.com/Exercicios/Calistenia/Agachamento.gif",
+    "afundo": "https://gifdotreino.com/Exercicios/Pernas/Afundo.gif",
+    "agachamentoSumo": "https://gifdotreino.com/Exercicios/Pernas/Agachamento%20Sum%C3%B4%20sem%20Pesos.gif",
+    "ponteGluteo": "https://gifdotreino.com/Exercicios/Gl%C3%BAteos/Ponte%20de%20Gl%C3%BAteos.gif",
+    "donkeyKicks": "https://gifdotreino.com/Exercicios/Gl%C3%BAteos/Coice%20de%20Burro.gif",
+    "skaters": "https://gifdotreino.com/Exercicios/Funcional%20e%20HIT/Agachamento%20Skater.gif"
   }
 }
 
