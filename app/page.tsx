@@ -141,7 +141,11 @@ export default function Home() {
 
             <button 
               onClick={startExercise}
-              className={`w-full py-4 rounded-xl font-bold text-white text-lg shadow-lg mt-2 transition-transform active:scale-95 ${selectedExercise.theme.buttonColor}`}
+              className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg mt-2 transition-transform active:scale-95 ${
+                selectedExercise.theme.buttonColor.includes('bg-white') 
+                  ? 'bg-white text-slate-900 hover:bg-slate-100' 
+                  : `text-white ${selectedExercise.theme.buttonColor}`
+              }`}
             >
               Começar Treino
             </button>

@@ -11,33 +11,6 @@ Aplicativo de exercícios com timer circular desenvolvido em Next.js, focado em 
 - **Gerenciamento de Estado**: React Context API
 - **Animações**: Framer Motion
 
-## 📁 Estrutura do Projeto
-
-```
-fit/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Layout principal
-│   ├── page.tsx           # Página inicial
-│   └── globals.css        # Estilos globais
-├── components/
-│   ├── ui/                # Componentes reutilizáveis
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── CircularTimer.tsx
-│   │   ├── Modal.tsx
-│   │   └── Sidebar.tsx
-│   └── screens/           # Telas da aplicação
-│       ├── HomeScreen.tsx
-│       ├── ListScreen.tsx
-│       └── ExecutionScreen.tsx
-├── contexts/              # Context API
-│   └── AppContext.tsx
-├── data/                  # Dados mockados
-│   └── exercises.ts
-└── utils/                 # Funções utilitárias
-    └── audio.ts
-```
-
 ## 🎯 Funcionalidades
 
 ### 1. Tela Inicial (Níveis)

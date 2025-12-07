@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary", 
   ...props 
 }) => {
-  const baseStyle = "px-6 py-3 rounded-xl font-bold shadow-md transition-all active:scale-95 flex items-center justify-center gap-2";
+  const baseStyle = "px-6 py-3 rounded-xl font-bold shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 w-full md:max-w-md md:mx-auto";
   const variants = {
     primary: "bg-slate-800 text-white hover:bg-slate-700",
     outline: "border-2 border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
@@ -23,14 +23,9 @@ export const Button: React.FC<ButtonProps> = ({
     levelHard: "bg-red-100 text-red-800 border-2 border-red-200 hover:bg-red-200",
   };
 
-  // Se a className contém bg-white mas não tem cor de texto definida, adiciona text-slate-900
-  const hasWhiteBg = className.includes('bg-white');
-  const hasTextColor = /text-(slate|gray|black|white|green|red|orange|blue|yellow|purple|pink|indigo|cyan|teal|amber|emerald|lime|sky|violet|fuchsia|rose)-\d+/.test(className);
-  const textColorFix = hasWhiteBg && !hasTextColor ? 'text-slate-900' : '';
-
   return (
     <button 
-      className={`${baseStyle} ${variants[variant] || variants.primary} ${textColorFix} ${className}`} 
+      className={`${baseStyle} ${variants[variant] || variants.primary} ${className}`} 
       onClick={onClick} 
       {...props}
     >
