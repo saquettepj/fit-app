@@ -6,7 +6,8 @@
     "cardio": "https://media.giphy.com/media/3o7qDQ42tqK6q2d2lq/giphy.gif",
     "squat": "https://media.giphy.com/media/1iLzHqmJqbZTfwGc/giphy.gif",
     "burpee": "https://media.giphy.com/media/l2Je0oOcT3cj0j5qM/giphy.gif",
-    "climber": "https://media.giphy.com/media/l0HlPtbGpcnqa0fja/giphy.gif"
+    "climber": "https://media.giphy.com/media/l0HlPtbGpcnqa0fja/giphy.gif",
+    "danca": "https://media1.tenor.com/m/w-fL6YNXZd8AAAAC/dancing-dance.gif"
   },
   "exercises": {
     "polichinelos": "https://gifdotreino.com/Exercicios/Funcional%20e%20HIT/Polichinelos.gif",
@@ -34,7 +35,10 @@
     "russianTwist": "https://gifdotreino.com/Exercicios/Mobilidade/Contra%C3%A7%C3%A3o%20abdominal.gif",
     "elevacaoFrontal": "https://gifdotreino.com/Exercicios/Ombros/Eleva%C3%A7%C3%A3o%20frontal%20com%20halteres.gif",
     "burpee": "https://gifdotreino.com/Exercicios/Crossfit/Burpees.gif",
-    "tricepsKickback": "https://gifdotreino.com/Exercicios/Tr%C3%ADceps/Tr%C3%ADceps%20no%20Banco.gif"
+    "tricepsKickback": "https://gifdotreino.com/Exercicios/Tr%C3%ADceps/Tr%C3%ADceps%20no%20Banco.gif",
+    "afundoLateral": "https://gifdotreino.com/Exercicios/Funcional%20e%20HIT/Afundo%20Lateral.gif",
+    "stiff": "https://gifdotreino.com/Exercicios/Pernas/Stiff%20com%20Halter.gif",
+    "elevacaoPosterior": "https://gifdotreino.com/Exercicios/Ombros/Eleva%C3%A7%C3%A3o%20Posterior%20unilateral%20com%20halteres%20em%20Dec%C3%BAbito%20Prono.gif"
   }
 }
 

@@ -221,7 +221,7 @@ export const intenseExercises: Exercise[] = [
     },
     steps: [
       // Dança - 30 min
-      { type: "action", duration: 1800, description: "Dança - 30 min", gifUrl: GIFS.cardio },
+      { type: "action", duration: 1800, description: "Dança - 30 min", gifUrl: GIFS.danca },
       { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
       
       // Core - 3 séries
@@ -363,6 +363,81 @@ export const intenseExercises: Exercise[] = [
       { type: "action", duration: 20, description: "Mountain climber", gifUrl: GIFS.climber },
       { type: "rest", duration: 10, description: "Descanso", gifUrl: GIFS.rest },
       { type: "action", duration: 20, description: "Jumping jacks", gifUrl: EXERCISE_GIFS.polichinelos }
+    ]
+  },
+  {
+    id: 'i5',
+    title: "Pernas e Cardio (Versão 2)",
+    description: "Treino completo para membros inferiores com aquecimento, exercícios de força e dança moderada.",
+    coverImage: "/pernas-e-cardio-2.png",
+    seriesCount: 4,
+    theme: {
+      cardBg: "bg-red-50",
+      textColor: "text-red-900",
+      borderColor: "border-red-200",
+      accentColor: "bg-red-100",
+      timerColor: "#dc2626",
+      buttonColor: "bg-red-600 hover:bg-red-700",
+      levelLabel: "Intenso"
+    },
+    steps: [
+      // Aquecimento
+      { type: "action", duration: 120, description: "2 min movimentos de quadril", gifUrl: GIFS.stretch },
+      { type: "rest", duration: 5, description: "Pausa", gifUrl: GIFS.rest },
+      { type: "action", duration: 300, description: "5 min corrida leve no lugar", gifUrl: GIFS.cardio },
+      { type: "rest", duration: 10, description: "Pausa", gifUrl: GIFS.rest },
+      
+      // 4 séries de exercícios de força
+      // Série 1
+      { type: "action", duration: 45, description: "Agachamento sumô", gifUrl: EXERCISE_GIFS.agachamentoSumo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Avanço lateral", gifUrl: EXERCISE_GIFS.afundoLateral },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Stiff", gifUrl: EXERCISE_GIFS.stiff },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Ponte de glúteos com 2s de contração", gifUrl: EXERCISE_GIFS.ponteGluteo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Elevação posterior de perna", gifUrl: EXERCISE_GIFS.elevacaoPosterior },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      
+      // Série 2
+      { type: "action", duration: 45, description: "Agachamento sumô", gifUrl: EXERCISE_GIFS.agachamentoSumo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Avanço lateral", gifUrl: EXERCISE_GIFS.afundoLateral },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Stiff", gifUrl: EXERCISE_GIFS.stiff },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Ponte de glúteos com 2s de contração", gifUrl: EXERCISE_GIFS.ponteGluteo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Elevação posterior de perna", gifUrl: EXERCISE_GIFS.elevacaoPosterior },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      
+      // Série 3
+      { type: "action", duration: 45, description: "Agachamento sumô", gifUrl: EXERCISE_GIFS.agachamentoSumo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Avanço lateral", gifUrl: EXERCISE_GIFS.afundoLateral },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Stiff", gifUrl: EXERCISE_GIFS.stiff },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Ponte de glúteos com 2s de contração", gifUrl: EXERCISE_GIFS.ponteGluteo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Elevação posterior de perna", gifUrl: EXERCISE_GIFS.elevacaoPosterior },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      
+      // Série 4
+      { type: "action", duration: 45, description: "Agachamento sumô", gifUrl: EXERCISE_GIFS.agachamentoSumo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Avanço lateral", gifUrl: EXERCISE_GIFS.afundoLateral },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Stiff", gifUrl: EXERCISE_GIFS.stiff },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 50, description: "Ponte de glúteos com 2s de contração", gifUrl: EXERCISE_GIFS.ponteGluteo },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      { type: "action", duration: 45, description: "Elevação posterior de perna", gifUrl: EXERCISE_GIFS.elevacaoPosterior },
+      { type: "rest", duration: 5, description: "Descanso", gifUrl: GIFS.rest },
+      
+      // Finalização
+      { type: "action", duration: 900, description: "15 min dança moderada", gifUrl: GIFS.danca }
     ]
   }
 ];
