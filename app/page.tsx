@@ -59,7 +59,10 @@ export default function Home() {
   };
 
   return (
-    <div className="font-sans text-slate-900 bg-slate-50 antialiased selection:bg-blue-100 h-screen w-full overflow-hidden">
+    <div 
+      className="font-sans text-slate-900 bg-slate-50 antialiased selection:bg-blue-100 w-full overflow-hidden"
+      style={{ height: '100dvh', maxHeight: '100dvh' }}
+    >
       <Sidebar 
         isOpen={isSidebarOpen} 
         onClose={() => setIsSidebarOpen(false)} 
@@ -74,7 +77,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -20 }} 
             animate={{ opacity: 1, x: 0 }} 
             exit={{ opacity: 0, x: -20 }}
-            className="h-full overflow-y-auto"
+            className="h-full overflow-hidden"
           >
             <HomeScreen 
               onSelectLevel={handleSelectLevel} 
@@ -106,7 +109,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }} 
             animate={{ opacity: 1, y: 0 }} 
             exit={{ opacity: 0, y: 50 }}
-            className="h-full overflow-y-auto"
+            className="h-full overflow-hidden"
           >
             <ExecutionScreen 
               exercise={selectedExercise} 

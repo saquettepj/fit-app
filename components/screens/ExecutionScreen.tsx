@@ -184,7 +184,10 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   }
 
   return (
-    <div className="h-screen bg-white flex flex-col overflow-hidden">
+    <div 
+      className="bg-white flex flex-col overflow-hidden"
+      style={{ height: '100dvh', maxHeight: '100dvh' }}
+    >
       <div className="p-3 flex items-center justify-between z-10 bg-white flex-shrink-0">
         <button 
           onClick={onBack} 
@@ -197,7 +200,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
         </div>
       </div>
 
-      <main className="flex-1 flex flex-col max-w-md mx-auto w-full relative overflow-hidden">
+      <main className="flex-1 flex flex-col max-w-md mx-auto w-full relative overflow-hidden min-h-0">
         <div className="px-4 flex flex-col items-center flex-shrink-0">
           <AnimatePresence mode="wait">
             <motion.div 
