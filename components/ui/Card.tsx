@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Clock } from 'lucide-react';
 import { Exercise } from '@/data/exercises';
@@ -23,11 +23,6 @@ export const Card: React.FC<CardProps> = ({ exercise, onClick }) => {
     return `${seconds} seg`;
   };
 
-  // Calcula o caminho da imagem com basePath correto
-  const imageSrc = useMemo(() => {
-    return getImagePath(exercise.coverImage);
-  }, [exercise.coverImage]);
-
   return (
     <motion.div
       whileTap={{ scale: 0.98 }}
@@ -35,11 +30,7 @@ export const Card: React.FC<CardProps> = ({ exercise, onClick }) => {
       className={`rounded-2xl overflow-hidden shadow-sm border ${exercise.theme.borderColor} ${exercise.theme.cardBg} cursor-pointer relative`}
     >
       <div className="h-32 w-full overflow-hidden relative">
-        <img 
-          src={imageSrc} 
-          alt={exercise.title} 
-          className="w-full h-full object-cover"
-        />
+        <img src={getImagePath(exercise.coverImage)} alt={exercise.title} className="w-full h-full object-cover" />
         <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-md">
           {exercise.seriesCount} {exercise.seriesCount === 1 ? 'Série' : 'Séries'}
         </div>
