@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HomeScreen } from '@/components/screens/HomeScreen';
 import { ListScreen } from '@/components/screens/ListScreen';
@@ -12,6 +12,60 @@ import { useApp } from '@/contexts/AppContext';
 import { Exercise } from '@/data/exercises';
 
 export default function Home() {
+  // Prevenir pull-to-refresh no mobile
+  useEffect(() => {
+    let lastTouchY = 0;
+    let touchStartY = 0;
+
+    const preventPullToRefresh = (e: TouchEvent) => {
+      const touchY = e.touches[0].clientY;
+      
+      if (e.type === 'touchstart') {
+        touchStartY = touchY;
+        lastTouchY = touchY;
+      } else if (e.type === 'touchmove') {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const isScrollingDown = touchY > lastTouchY;
+        const isAtTop = scrollTop === 0;
+        
+        // Se está no topo e arrastando para baixo, prevenir
+        if (isAtTop && isScrollingDown && touchY > touchStartY) {
+          e.preventDefault();
+        }
+        
+        lastTouchY = touchY;
+      }
+    };
+
+    // Prevenir comportamento padrão de touchmove quando necessário
+    const preventDefault = (e: TouchEvent) => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop === 0 && e.touches[0].clientY > 0) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('touchstart', preventPullToRefresh, { passive: false });
+    document.addEventListener('touchmove', preventPullToRefresh, { passive: false });
+    document.addEventListener('touchmove', preventDefault, { passive: false });
+
+    // Prevenir scroll quando está no topo
+    const preventScroll = (e: WheelEvent) => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop === 0 && e.deltaY < 0) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener('wheel', preventScroll, { passive: false });
+
+    return () => {
+      document.removeEventListener('touchstart', preventPullToRefresh);
+      document.removeEventListener('touchmove', preventPullToRefresh);
+      document.removeEventListener('touchmove', preventDefault);
+      window.removeEventListener('wheel', preventScroll);
+    };
+  }, []);
   const {
     currentView,
     setCurrentView,
