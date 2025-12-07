@@ -28,6 +28,19 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   
   const currentStep = exercise.steps[currentStepIndex];
   const isResting = currentStep.type === 'rest';
+  
+  // Encontra o próximo exercício (action) para mostrar durante a pausa
+  const getNextExerciseGif = () => {
+    for (let i = currentStepIndex + 1; i < exercise.steps.length; i++) {
+      if (exercise.steps[i].type === 'action') {
+        return exercise.steps[i].gifUrl;
+      }
+    }
+    // Se não encontrar próximo, retorna o GIF atual
+    return currentStep.gifUrl;
+  };
+  
+  const gifToShow = isResting ? getNextExerciseGif() : currentStep.gifUrl;
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -136,22 +149,15 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className={`w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 relative transition-all duration-500 flex items-center justify-center ${isResting ? 'grayscale opacity-80' : ''}`}
+              className="w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 relative transition-all duration-500 flex items-center justify-center"
               style={{ backgroundColor: '#fcfcfc' }}
             >
               <img 
-                src={currentStep.gifUrl} 
+                src={gifToShow} 
                 alt="Exercise Step" 
-                className="max-w-full max-h-full object-contain" 
+                className={`max-w-full max-h-full object-contain transition-all duration-300 ${isResting ? 'opacity-80' : ''}`}
+                style={isResting ? { filter: 'blur(1px)' } : {}}
               />
-              
-              {isResting && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[2px]">
-                  <span className="text-white font-black text-2xl tracking-widest uppercase drop-shadow-md">
-                    Descanso
-                  </span>
-                </div>
-              )}
             </motion.div>
           </AnimatePresence>
           
