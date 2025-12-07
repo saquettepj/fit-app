@@ -136,12 +136,13 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className={`w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 relative transition-all duration-500 ${isResting ? 'grayscale opacity-80' : ''}`}
+              className={`w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 relative transition-all duration-500 flex items-center justify-center ${isResting ? 'grayscale opacity-80' : ''}`}
+              style={{ backgroundColor: '#fcfcfc' }}
             >
               <img 
                 src={currentStep.gifUrl} 
                 alt="Exercise Step" 
-                className="w-full h-full object-cover" 
+                className="max-w-full max-h-full object-contain" 
               />
               
               {isResting && (
