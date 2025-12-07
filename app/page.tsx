@@ -127,18 +127,20 @@ export default function Home() {
             
             <div className="space-y-3">
               <h4 className="text-sm font-bold text-slate-500 uppercase">Sequência</h4>
-              <ul className="space-y-2 relative border-l-2 border-slate-100 ml-2 pl-4">
-                {selectedExercise.steps.map((step, idx) => (
-                  <li key={idx} className="text-sm flex justify-between items-center">
-                    <span className={step.type === 'rest' ? 'text-slate-400 italic' : 'text-slate-700 font-medium'}>
-                      {step.description}
-                    </span>
-                    <span className="text-slate-400 text-xs font-mono bg-slate-100 px-1 rounded self-start">
-                      {step.duration}s
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="max-h-64 overflow-y-auto pr-2">
+                <ul className="space-y-2 relative border-l-2 border-slate-100 ml-2 pl-4">
+                  {selectedExercise.steps.map((step, idx) => (
+                    <li key={idx} className="text-sm flex justify-between items-center">
+                      <span className={step.type === 'rest' ? 'text-slate-400 italic' : 'text-slate-700 font-medium'}>
+                        {step.description}
+                      </span>
+                      <span className="text-slate-400 text-xs font-mono bg-slate-100 px-1 rounded self-start ml-2 flex-shrink-0">
+                        {step.duration}s
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <button 
