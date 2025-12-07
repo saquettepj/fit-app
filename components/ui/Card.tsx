@@ -31,7 +31,7 @@ export const Card: React.FC<CardProps> = ({ exercise, onClick }) => {
       <div className="h-32 w-full overflow-hidden relative">
         <img src={exercise.coverImage} alt={exercise.title} className="w-full h-full object-cover" />
         <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-md">
-          {exercise.seriesCount} Séries
+          {exercise.seriesCount} {exercise.seriesCount === 1 ? 'Série' : 'Séries'}
         </div>
       </div>
       <div className="p-4">

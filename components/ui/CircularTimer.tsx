@@ -19,6 +19,15 @@ export const CircularTimer: React.FC<CircularTimerProps> = ({
   const progress = timeLeft / duration;
   const dashOffset = circumference * (1 - progress);
 
+  const formatTime = (seconds: number) => {
+    if (seconds >= 60) {
+      const minutes = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${minutes}:${secs.toString().padStart(2, '0')}`;
+    }
+    return seconds.toString();
+  };
+
   return (
     <div className="relative flex items-center justify-center w-64 h-64 mx-auto my-6">
       <svg className="absolute w-full h-full transform -rotate-90">
@@ -47,7 +56,7 @@ export const CircularTimer: React.FC<CircularTimerProps> = ({
       
       <div className="absolute flex flex-col items-center">
         <span className={`text-6xl font-black tabular-nums tracking-tighter ${isResting ? 'text-orange-500' : 'text-slate-800'}`}>
-          {timeLeft}
+          {formatTime(timeLeft)}
         </span>
         <span className={`text-sm font-semibold uppercase tracking-widest mt-1 ${isResting ? 'text-orange-400' : 'text-slate-400'}`}>
           {isResting ? 'Descanso' : 'Segundos'}

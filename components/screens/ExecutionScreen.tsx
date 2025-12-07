@@ -170,7 +170,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
         </motion.div>
         <h2 className="text-3xl font-black mb-2">Treino Concluído!</h2>
         <p className="text-slate-400 mb-8">
-          Parabéns, você finalizou todas as {exercise.seriesCount} séries.
+          Parabéns, você finalizou {exercise.seriesCount === 1 ? 'a série' : `todas as ${exercise.seriesCount} séries`}.
         </p>
         <Button 
           variant="outline"

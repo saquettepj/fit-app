@@ -278,7 +278,7 @@ export const intenseExercises: Exercise[] = [
     title: "Superior e Cardio",
     description: "Treino completo para membros superiores com aquecimento, exercícios de força e circuito HIIT.",
     coverImage: "/superior-e-cardio.png",
-    seriesCount: 4,
+    seriesCount: 1,
     theme: {
       cardBg: "bg-red-50",
       textColor: "text-red-900",

@@ -119,7 +119,7 @@ export default function Home() {
                   Foco
                 </span>
                 <span className="text-xs font-bold bg-white px-2 py-1 rounded text-slate-500">
-                  {selectedExercise.seriesCount} Séries
+                  {selectedExercise.seriesCount} {selectedExercise.seriesCount === 1 ? 'Série' : 'Séries'}
                 </span>
               </div>
               <p className="font-medium text-slate-700">{selectedExercise.description}</p>
