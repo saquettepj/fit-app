@@ -184,8 +184,8 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <div className="p-4 flex items-center justify-between sticky top-0 z-10 bg-white/80 backdrop-blur-md">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
+      <div className="p-3 flex items-center justify-between z-10 bg-white flex-shrink-0">
         <button 
           onClick={onBack} 
           className="p-2 hover:bg-slate-100 rounded-full text-slate-600"
@@ -197,8 +197,8 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
         </div>
       </div>
 
-      <main className="flex-1 flex flex-col max-w-md mx-auto w-full relative">
-        <div className="px-4 flex flex-col items-center">
+      <main className="flex-1 flex flex-col max-w-md mx-auto w-full relative overflow-hidden">
+        <div className="px-4 flex flex-col items-center flex-shrink-0">
           <AnimatePresence mode="wait">
             <motion.div 
               key={currentStepIndex}
@@ -206,7 +206,7 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="w-full aspect-video rounded-2xl overflow-hidden shadow-xl mb-2 relative transition-all duration-500 flex items-center justify-center max-h-[180px]"
+              className="w-full rounded-2xl overflow-hidden shadow-xl mb-1 relative transition-all duration-500 flex items-center justify-center h-[140px]"
               style={{ backgroundColor: '#fcfcfc' }}
             >
               <img 
@@ -218,22 +218,24 @@ export const ExecutionScreen: React.FC<ExecutionScreenProps> = ({
             </motion.div>
           </AnimatePresence>
           
-          <h2 className="text-xl font-bold text-slate-800 text-center mb-0.5 transition-all">
+          <h2 className="text-lg font-bold text-slate-800 text-center mb-0.5 transition-all">
             {currentStep.description}
           </h2>
-          <p className={`text-xs font-medium uppercase tracking-wider mb-1 ${isResting ? 'text-orange-500' : 'text-slate-400'}`}>
+          <p className={`text-xs font-medium uppercase tracking-wider mb-0.5 ${isResting ? 'text-orange-500' : 'text-slate-400'}`}>
             {isResting ? 'Respire fundo' : 'Execute o movimento'}
           </p>
         </div>
 
-        <CircularTimer 
-          duration={currentStep.duration} 
-          timeLeft={timeLeft} 
-          color={exercise.theme.timerColor}
-          isResting={isResting}
-        />
+        <div className="flex-shrink-0">
+          <CircularTimer 
+            duration={currentStep.duration} 
+            timeLeft={timeLeft} 
+            color={exercise.theme.timerColor}
+            isResting={isResting}
+          />
+        </div>
 
-        <div className="mt-auto p-4 w-full flex flex-col gap-3 bg-slate-50 rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
+        <div className="mt-auto p-3 w-full flex flex-col gap-2 bg-slate-50 rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)] flex-shrink-0">
           <div className="flex justify-center items-center gap-5">
             <button 
               onClick={togglePause}

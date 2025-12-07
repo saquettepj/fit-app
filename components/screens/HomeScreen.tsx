@@ -10,8 +10,8 @@ interface HomeScreenProps {
 
 export const HomeScreen: React.FC<HomeScreenProps> = ({ onSelectLevel, toggleSidebar }) => {
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <header className="p-6 flex justify-between items-center bg-white shadow-sm sticky top-0 z-10">
+    <div className="h-screen bg-slate-50 flex flex-col overflow-hidden">
+      <header className="p-4 flex justify-between items-center bg-white shadow-sm z-10 flex-shrink-0">
         <button 
           onClick={toggleSidebar} 
           className="p-2 -ml-2 hover:bg-slate-100 rounded-full text-slate-600"
@@ -21,7 +21,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onSelectLevel, toggleSid
         <div className="w-8" /> 
       </header>
 
-      <main className="flex-1 p-4 flex flex-col gap-4 justify-center max-w-md mx-auto w-full">
+      <main className="flex-1 p-4 flex flex-col gap-3 justify-center max-w-md mx-auto w-full overflow-hidden">
         <div className="text-center mb-2">
           <h2 className="text-2xl font-black text-slate-800 mb-1">Vamos treinar?</h2>
           <p className="text-sm text-slate-500">Selecione a intensidade ideal para o seu momento.</p>
